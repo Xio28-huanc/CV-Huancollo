@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nayeli Xiomara Huancollo Quispe</title>
+    <!-- Tailwind CSS para los estilos responsivos y Flat Design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts para una tipografía limpia y moderna (Flat Design) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        principal: '#856288', /* Nuevo color principal (Malva/Morado grisáceo) */
+                        secundario: '#D4A5C6', /* Rosa/Lila suave para acentos */
+                        rosaClaro: '#F3E8F0', /* Tono muy claro para fondos de tarjetas */
+                        fondo: '#FAF7F9', /* Blanco roto con tinte malva para el fondo principal */
+                        texto: '#4A3B4C', /* Texto oscuro en tono acorde a la paleta */
+                        bordeClaro: '#E6D7E3' /* Bordes suaves */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animaciones para el menú hamburguesa */
+        .hamburger-line {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        
+        .menu-open .line-1 {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+        
+        .menu-open .line-3 {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Animación suave para el panel del menú móvil */
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.open {
+            max-height: 400px; /* Ajusta según el contenido */
+            opacity: 1;
+        }
+
+        /* Estilos Flat Design (sin sombras, bordes sólidos) */
+        .flat-card {
+            border: 2px solid #E6D7E3; /* Borde suave */
+            background-color: white;
+            border-radius: 0; /* Bordes rectos clásicos del flat design */
+        }
+        
+        .flat-button {
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        
+        .flat-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body class="bg-fondo text-texto font-sans antialiased selection:bg-principal selection:text-white">
+
+    <!-- Navegación Principal -->
+    <header class="bg-principal text-white fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Nombre -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-bold text-xl tracking-wider hover:text-secundario transition-colors">NHQ.</a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#sobre-mi" class="hover:text-secundario transition-colors font-semibold text-sm">Sobre mí</a></li>
+                        <li><a href="#experiencia" class="hover:text-secundario transition-colors font-semibold text-sm">Experiencia</a></li>
+                        <li><a href="#formacion" class="hover:text-secundario transition-colors font-semibold text-sm">Formación</a></li>
+                        <li><a href="#habilidades" class="hover:text-secundario transition-colors font-semibold text-sm">Habilidades</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Botón de Contacto (Desktop) -->
+                <div class="hidden md:block">
+                    <a href="#contacto" class="bg-secundario text-white px-5 py-2 font-bold hover:bg-white hover:text-principal transition-colors flat-button">Contacto</a>
+                </div>
+
+                <!-- Botón Menú Móvil (Hamburguesa) -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-white focus:outline-none w-10 h-10 flex flex-col justify-center items-center relative">
+                        <span class="hamburger-line line-1 w-6 h-0.5 bg-white mb-1.5 block"></span>
+                        <span class="hamburger-line line-2 w-6 h-0.5 bg-white mb-1.5 block"></span>
+                        <span class="hamburger-line line-3 w-6 h-0.5 bg-white block"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="md:hidden bg-principal border-t border-purple-900">
+            <ul class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <li><a href="#sobre-mi" class="mobile-link block px-3 py-2 text-white hover:bg-secundario hover:text-texto transition-colors font-medium">Sobre mí</a></li>
+                <li><a href="#experiencia" class="mobile-link block px-3 py-2 text-white hover:bg-secundario hover:text-texto transition-colors font-medium">Experiencia</a></li>
+                <li><a href="#formacion" class="mobile-link block px-3 py-2 text-white hover:bg-secundario hover:text-texto transition-colors font-medium">Formación</a></li>
+                <li><a href="#habilidades" class="mobile-link block px-3 py-2 text-white hover:bg-secundario hover:text-texto transition-colors font-medium">Habilidades</a></li>
+                <li><a href="#contacto" class="mobile-link block px-3 py-2 text-secundario font-bold border-t border-purple-900 mt-2 pt-2">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Sección Hero (Presentación) -->
+    <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-24 bg-white border-b-4 border-secundario">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+                <!-- Textos -->
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <p class="text-principal font-bold uppercase tracking-widest mb-2">Currículum Vitae</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-principal leading-tight mb-4">
+                        Nayeli Xiomara<br>Huancollo Quispe
+                    </h1>
+                    <h2 class="text-xl md:text-2xl font-semibold text-gray-600 mb-6">
+                        Bachiller en Administración de Empresas
+                    </h2>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <a href="#contacto" class="bg-principal text-white px-8 py-3 font-bold text-lg hover:bg-purple-900 flat-button text-center flex items-center justify-center gap-2">
+                            <i data-lucide="mail" class="w-5 h-5"></i> Contactar
+                        </a>
+                        <a href="#experiencia" class="bg-fondo text-principal border-2 border-principal px-8 py-3 font-bold text-lg hover:bg-principal hover:text-white flat-button text-center flex items-center justify-center gap-2">
+                            <i data-lucide="briefcase" class="w-5 h-5"></i> Ver Experiencia
+                        </a>
+                    </div>
+                </div>
+                <!-- Imagen -->
+                <div class="w-56 h-56 md:w-72 md:h-72 bg-rosaClaro rounded-full overflow-hidden border-8 border-principal flex-shrink-0 flex items-center justify-center relative shadow-lg shadow-purple-200/50">
+                    <img src="foto.jpg.jpeg" alt="Nayeli Xiomara Huancollo Quispe" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/400x400/856288/FFFFFF?text=NX';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="py-16 md:py-24 bg-fondo">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block bg-principal text-white px-6 py-2 font-bold uppercase text-sm mb-6 rounded-sm">Perfil Profesional</div>
+            <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+                Experiencia como <strong class="text-principal">Asistente Administrativo</strong>, con enfoque en gestión documental y atención al cliente. 
+                Destaco por mi organización, responsabilidad y capacidad de trabajo en equipo, brindando 
+                soporte eficiente en procesos administrativos y operativos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia -->
+    <section id="experiencia" class="py-16 md:py-24 bg-white border-t-2 border-bordeClaro">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-principal mb-12 text-center md:text-left border-l-8 border-secundario pl-4">Experiencia Laboral</h2>
+            
+            <div class="space-y-8">
+                <!-- Trabajo 1 -->
+                <div class="flat-card p-6 md:p-8 hover:border-principal hover:bg-fondo transition-colors">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+                        <div>
+                            <h3 class="text-2xl font-bold text-principal">Asistente Administrativo</h3>
+                            <p class="text-lg font-semibold text-secundario">Universidad Nacional de San Agustín de Arequipa</p>
+                        </div>
+                        <div class="bg-rosaClaro text-principal px-4 py-1 font-bold text-sm inline-block w-max rounded-sm">
+                            01 Marzo 2023 - Actualidad
+                        </div>
+                    </div>
+                    <ul class="list-none space-y-2 mt-4 text-gray-700">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Gestión y control de documentación administrativa.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Atención y orientación a usuarios internos y externos.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Organización y archivo de información y expedientes.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Apoyo en la coordinación de actividades administrativas y académicas.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Elaboración y envío de documentos e informes mediante herramientas informáticas.</li>
+                    </ul>
+                </div>
+
+                <!-- Trabajo 2 -->
+                <div class="flat-card p-6 md:p-8 hover:border-principal hover:bg-fondo transition-colors">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+                        <div>
+                            <h3 class="text-2xl font-bold text-principal">Secretaria</h3>
+                            <p class="text-lg font-semibold text-secundario">Estudio Jurídico Bellido & Abogados</p>
+                        </div>
+                        <div class="bg-rosaClaro text-principal px-4 py-1 font-bold text-sm inline-block w-max rounded-sm">
+                            28 Sept. 2021 - 28 Feb. 2023
+                        </div>
+                    </div>
+                    <ul class="list-none space-y-2 mt-4 text-gray-700">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Organización y gestión de la agenda de atención a clientes.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Atención, orientación y coordinación de citas con usuarios.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Apoyo en el archivo, control y distribución de documentación legal.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Organización y digitalización de expedientes y documentos.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Elaboración de bases de datos en Excel para el control de jurisprudencia y ubicación de documentos.</li>
+                    </ul>
+                </div>
+
+                <!-- Trabajo 3 -->
+                <div class="flat-card p-6 md:p-8 hover:border-principal hover:bg-fondo transition-colors">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
+                        <div>
+                            <h3 class="text-2xl font-bold text-principal">Practicante en Secretariado</h3>
+                            <p class="text-lg font-semibold text-secundario">JM Proyectos y Edificaciones (Arequipa)</p>
+                        </div>
+                        <div class="bg-rosaClaro text-principal px-4 py-1 font-bold text-sm inline-block w-max rounded-sm">
+                            08 Feb. 2021 - 26 Jun. 2021
+                        </div>
+                    </div>
+                    <ul class="list-none space-y-2 mt-4 text-gray-700">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Atención y orientación a clientes, brindando información sobre los servicios de la empresa.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Organización de agenda y apoyo en la coordinación de actividades administrativas.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Apoyo en la gestión y entrega de productos y documentación a clientes.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Organización, control y archivo de documentos administrativos.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-principal flex-shrink-0 mt-0.5"></i> Apoyo en la difusión de información de la empresa mediante redes sociales.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Formación y Capacitaciones -->
+    <section id="formacion" class="py-16 md:py-24 bg-fondo border-t-2 border-bordeClaro">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Columna Formación Académica -->
+                <div>
+                    <h2 class="text-3xl font-bold text-principal mb-8 border-l-8 border-secundario pl-4">Formación Académica</h2>
+                    <div class="bg-white border-2 border-principal p-6 shadow-[4px_4px_0px_0px_rgba(212,165,198,1)]">
+                        <h3 class="text-xl font-bold text-texto">Administración de Empresas</h3>
+                        <p class="text-principal font-bold mt-1">Universidad Tecnológica del Perú Campus Arequipa</p>
+                        <p class="text-gray-500 mt-2 font-medium flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> 2020 - 2025</p>
+                    </div>
+                </div>
+
+                <!-- Columna Especializaciones -->
+                <div>
+                    <h2 class="text-3xl font-bold text-principal mb-8 border-l-8 border-secundario pl-4">Especializaciones</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white border-2 border-rosaClaro p-5 hover:border-principal transition-colors">
+                            <h3 class="text-lg font-bold text-texto">Curso en Gestión Pública</h3>
+                            <p class="text-principal font-medium text-sm mt-1">Facultad de Administración - UNSA Arequipa</p>
+                            <p class="text-gray-500 mt-2 text-sm">Duración: 200 horas | 2025</p>
+                        </div>
+                        <div class="bg-white border-2 border-rosaClaro p-5 hover:border-principal transition-colors">
+                            <h3 class="text-lg font-bold text-texto">Diploma en Relaciones Públicas en Certámenes y Protocolo</h3>
+                            <p class="text-principal font-medium text-sm mt-1">Universidad La Salle - Arequipa</p>
+                            <p class="text-gray-500 mt-2 text-sm">Duración: 384 horas | 2020</p>
+                        </div>
+                        <div class="bg-white border-2 border-rosaClaro p-5 hover:border-principal transition-colors">
+                            <h3 class="text-lg font-bold text-texto">Especialidad en Secretariado Informático Ejecutivo</h3>
+                            <p class="text-principal font-medium text-sm mt-1">Instituto de Informática - UNSA Arequipa</p>
+                            <p class="text-gray-500 mt-2 text-sm">Duración: 880 horas | 2019</p>
+                        </div>
+                        <div class="bg-white border-2 border-rosaClaro p-5 hover:border-principal transition-colors">
+                            <h3 class="text-lg font-bold text-texto">Especialidad en Informática Contable</h3>
+                            <p class="text-principal font-medium text-sm mt-1">Instituto de Informática - UNSA Arequipa</p>
+                            <p class="text-gray-500 mt-2 text-sm">Duración: 880 horas | 2019</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades y Herramientas -->
+    <section id="habilidades" class="py-16 md:py-24 bg-principal text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center md:text-left border-l-8 border-secundario pl-4 text-white">Habilidades y Herramientas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Habilidades Blandas / Operativas -->
+                <div>
+                    <h3 class="text-xl font-bold text-rosaClaro mb-6 flex items-center gap-2">
+                        <i data-lucide="star" class="w-6 h-6 text-secundario"></i> Competencias
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Gestión administrativa y documentario</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Organización y planificación</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Atención al cliente</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Coordinación de actividades</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Gestión de información</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Optimización de procesos</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Trabajo en equipo</span>
+                        <span class="bg-[#99789D] text-white px-4 py-2 text-sm font-medium border border-[#715074] hover:bg-secundario hover:text-texto transition-colors cursor-default">Comunicación efectiva</span>
+                    </div>
+                </div>
+
+                <!-- Herramientas Informáticas -->
+                <div>
+                    <h3 class="text-xl font-bold text-rosaClaro mb-6 flex items-center gap-2">
+                        <i data-lucide="monitor" class="w-6 h-6 text-secundario"></i> Herramientas
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 bg-[#99789D] px-4 py-3 border-l-4 border-secundario">
+                            <i data-lucide="file-text" class="w-5 h-5 text-rosaClaro"></i>
+                            <span>Microsoft Word <strong>(Avanzado)</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-[#99789D] px-4 py-3 border-l-4 border-secundario">
+                            <i data-lucide="table" class="w-5 h-5 text-rosaClaro"></i>
+                            <span>Microsoft Excel <strong>(Intermedio)</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-[#99789D] px-4 py-3 border-l-4 border-secundario">
+                            <i data-lucide="monitor-play" class="w-5 h-5 text-rosaClaro"></i>
+                            <span>Microsoft PowerPoint</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-[#99789D] px-4 py-3 border-l-4 border-secundario">
+                            <i data-lucide="mail" class="w-5 h-5 text-rosaClaro"></i>
+                            <span>Gestión de correo (Gmail / Outlook)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="bg-gray-900 text-white py-12 border-t-8 border-secundario">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-8 text-rosaClaro">Contacto</h2>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-8">
+                <a href="tel:940542171" class="flex items-center gap-3 text-lg hover:text-secundario transition-colors bg-gray-800 px-6 py-3 rounded-sm border border-gray-700">
+                    <i data-lucide="phone" class="w-6 h-6 text-secundario"></i>
+                    940 542 171
+                </a>
+                <a href="mailto:nayeli.xio.10@gmail.com" class="flex items-center gap-3 text-lg hover:text-secundario transition-colors bg-gray-800 px-6 py-3 rounded-sm border border-gray-700">
+                    <i data-lucide="mail" class="w-6 h-6 text-secundario"></i>
+                    nayeli.xio.10@gmail.com
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 mt-8 text-gray-400 text-sm">
+                &copy; 2026 Nayeli Xiomara Huancollo Quispe. Currículum Vitae.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de interactividad (Menú e Íconos) -->
+    <script>
+        // Inicializar iconos de Lucide
+        lucide.createIcons();
+
+        // Lógica del menú hamburguesa interactivo
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Función para alternar el menú
+        const toggleMenu = () => {
+            menuBtn.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('open');
+        };
+
+        // Evento click en el botón de hamburguesa
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Cerrar menú móvil al hacer click en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
